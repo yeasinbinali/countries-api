@@ -1,0 +1,36 @@
+#country-detail{
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: rgb(252, 229, 252);
+    padding: 2px;
+
+}
+#country-detail>img{
+    width: 30%;
+}
+#countries{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+#countries>div{
+    background-color: rgb(255, 247, 232);
+    padding: 15px;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+#countries>div>button{
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 20px;
+    background-color: rgb(241, 66, 35);
+    color: white;
+}
+#countries>div>button:focus{
+    background-color: yellowgreen;
+    color: red;
+    font-weight: bolder;
+}
