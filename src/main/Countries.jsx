@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react"
+import Country from "./Country";
 
 export default function Countries() {
     const [countries, setCountries] = useState([]);
@@ -11,11 +12,11 @@ export default function Countries() {
     }, [])
 
     return (
-        <>
+        <div>
             {
-                countries.map(country => console.log(country))
+                countries.map(country => <Country country = {country}></Country>)
             }
-        </>
+        </div>
     )
 
 }
