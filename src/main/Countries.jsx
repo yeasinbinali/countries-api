@@ -12,7 +12,7 @@ export default function Countries() {
     }, [])
 
     return (
-        <div>
+        <div className="w-[95%] mx-auto grid grid-cols-4 gap-10 my-10">
             {
                 countries.map(country => <Country country = {country}></Country>)
             }
