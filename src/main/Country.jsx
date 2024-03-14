@@ -3,8 +3,6 @@ function Country({ country, handleDisplayCountry, displayCountry }) {
     const countryName = country.name.common;
     const countryCca3 = country.cca3;
 
-    console.log(displayCountry);
-
     return (
         <>
             <div style={{ border: '1px solid #EEEEEE', borderRadius: '15px' }} className="p-5 text-center">
@@ -31,9 +29,7 @@ function Country({ country, handleDisplayCountry, displayCountry }) {
 
                             <p className="mt-2">Population: <strong>{displayCountry?.population}</strong> | Region: <strong>{displayCountry?.region}</strong></p>
 
-                            <p className="mt-2">Time zone: <strong>{displayCountry?.timezones[0]}</strong> | Continent: <strong>{displayCountry?.continents[0]}</strong></p>
-
-                            <p className="mt-2">Start of week: <strong>{displayCountry?.startOfWeek}</strong> | Fifa: <strong>{displayCountry?.fifa}</strong></p>
+                            <p className="mt-2">Start of week: <strong>{displayCountry?.startOfWeek}</strong> | Fifa: <strong>{displayCountry?.fifa ? displayCountry?.fifa : 'None'}</strong></p>
 
                             <div className="modal-action">
                                 <form method="dialog">
