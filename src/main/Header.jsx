@@ -4,6 +4,7 @@ export default function Header({handleSearch}) {
         const searchInput = document.getElementById('search-input');
         const searchText = searchInput.value;
         handleSearch(searchText);
+        searchInput.value = '';
     }
 
     return (

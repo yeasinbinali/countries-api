@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Country from "./Country";
 
-export default function Countries({ searchCountry, displayError }) {
+export default function Countries({ searchCountry }) {
     const [countries, setCountries] = useState([]);
     const [displayCountry, setDisplayCountry] = useState([]);
+
+    console.log(searchCountry.message);
 
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
@@ -21,27 +23,33 @@ export default function Countries({ searchCountry, displayError }) {
     }
 
     return (
-        <div className="w-[95%] mx-auto grid grid-cols-4 gap-10 my-10">
+        <div className="w-[95%] mx-auto my-10">
             {
-                searchCountry[0] ? <>
+                searchCountry.message === 'Not Found' ? <>
+                    <h2 className="text-xl text-red-600 text-center">Country not found, Please search again</h2>
+                </> : <div className="grid grid-cols-4 gap-10 ">
                     {
-                        searchCountry.map(country => <Country
-                            key={country.cca3}
-                            country={country}
-                            handleDisplayCountry={handleDisplayCountry}
-                            displayCountry={displayCountry}
-                        ></Country>)
+                        searchCountry[0] ? <>
+                            {
+                                searchCountry.map(country => <Country
+                                    key={country.cca3}
+                                    country={country}
+                                    handleDisplayCountry={handleDisplayCountry}
+                                    displayCountry={displayCountry}
+                                ></Country>)
+                            }
+                        </> : <>
+                            {
+                                countries.map(country => <Country
+                                    key={country.cca3}
+                                    country={country}
+                                    handleDisplayCountry={handleDisplayCountry}
+                                    displayCountry={displayCountry}
+                                ></Country>)
+                            }
+                        </>
                     }
-                </> : <>
-                    {
-                        countries.map(country => <Country
-                            key={country.cca3}
-                            country={country}
-                            handleDisplayCountry={handleDisplayCountry}
-                            displayCountry={displayCountry}
-                        ></Country>)
-                    }
-                </>
+                </div>
             }
         </div>
     )
