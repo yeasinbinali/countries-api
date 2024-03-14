@@ -18,10 +18,10 @@ function Country({ country, handleDisplayCountry, displayCountry }) {
                     >
                         View Details
                     </button>
-                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <dialog id="my_modal_5" className="modal modal-middle">
                         <div className="modal-box text-black">
                             <img style={{border: '1px solid black'}} className="w-40 h-20 mx-auto rounded-lg" src={displayCountry?.flags?.png} alt="flags" />
-                            <h3 className="font-bold text-black text-4xl mt-3">{displayCountry?.name?.common}</h3>
+                            <h3 className="font-bold text-black text-2xl md:text-3xl lg:text-4xl mt-3">{displayCountry?.name?.common}</h3>
 
                             <h4 className="text-black text-md mt-3">Official name: <strong>{displayCountry?.name?.official}</strong></h4>
 

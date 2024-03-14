@@ -27,7 +27,7 @@ export default function Countries({ searchCountry }) {
             {
                 searchCountry.message === 'Not Found' ? <>
                     <h2 className="text-xl text-red-600 text-center">Country not found, Please search again</h2>
-                </> : <div className="grid grid-cols-4 gap-10 ">
+                </> : <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 ">
                     {
                         searchCountry[0] ? <>
                             {
