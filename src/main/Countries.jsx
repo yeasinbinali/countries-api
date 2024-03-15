@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Country from "./Country";
 
-export default function Countries({ searchCountry }) {
+export default function Countries({ searchCountry, handleFavoriteCountry }) {
     const [countries, setCountries] = useState([]);
     const [displayCountry, setDisplayCountry] = useState([]);
-
-    console.log(searchCountry.message);
 
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
@@ -35,6 +33,7 @@ export default function Countries({ searchCountry }) {
                                     key={country.cca3}
                                     country={country}
                                     handleDisplayCountry={handleDisplayCountry}
+                                    handleFavoriteCountry={handleFavoriteCountry}
                                     displayCountry={displayCountry}
                                 ></Country>)
                             }
@@ -43,6 +42,7 @@ export default function Countries({ searchCountry }) {
                                 countries.map(country => <Country
                                     key={country.cca3}
                                     country={country}
+                                    handleFavoriteCountry={handleFavoriteCountry}
                                     handleDisplayCountry={handleDisplayCountry}
                                     displayCountry={displayCountry}
                                 ></Country>)

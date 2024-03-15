@@ -4,6 +4,7 @@ import Countries from './main/Countries';
 import Header from './main/Header';
 
 function App() {
+  const [favoriteCountry, setFavoriteCountry] = useState([]);
   const [searchCountry, setSearchCountry] = useState([]);
 
   const handleSearch = (text) => {
@@ -11,11 +12,20 @@ function App() {
       .then(res => res.json())
       .then(data => setSearchCountry(data))
   }
-  
+
+  const handleFavoriteCountry = (countryData) => {
+    const newArr = favoriteCountry.find(country => country.cca3 === countryData.cca3);
+    console.log(newArr);
+    if(newArr) {
+      return;
+    }
+    setFavoriteCountry([...favoriteCountry, countryData])
+  }
+
   return (
     <>
-      <Header handleSearch={handleSearch}></Header>
-      <Countries searchCountry={searchCountry}></Countries>
+      <Header favoriteCountry={favoriteCountry} handleSearch={handleSearch}></Header>
+      <Countries handleFavoriteCountry={handleFavoriteCountry} searchCountry={searchCountry}></Countries>
     </>
   )
 }
