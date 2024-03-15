@@ -15,11 +15,13 @@ function App() {
 
   const handleFavoriteCountry = (countryData) => {
     const newArr = favoriteCountry.find(country => country.cca3 === countryData.cca3);
-    console.log(newArr);
-    if(newArr) {
-      return;
+    if (newArr) {
+      const filteredArr = favoriteCountry.filter(country => country.cca3 !== countryData.cca3);
+      setFavoriteCountry(filteredArr);
     }
-    setFavoriteCountry([...favoriteCountry, countryData])
+    else {
+      setFavoriteCountry([...favoriteCountry, countryData]);
+    }
   }
 
   return (

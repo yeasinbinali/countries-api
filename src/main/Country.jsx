@@ -1,7 +1,16 @@
+import { useState } from "react";
+
 function Country({ country, handleDisplayCountry, displayCountry, handleFavoriteCountry }) {
     const flag = country.flags.png;
     const countryName = country.name.common;
     const countryCca3 = country.cca3;
+
+    const [status, setStatus] = useState(false);
+
+    const handleStatus = (item) => {
+        handleFavoriteCountry(item); 
+        setStatus(true);
+    }
 
     return (
         <>
@@ -10,7 +19,7 @@ function Country({ country, handleDisplayCountry, displayCountry, handleFavorite
                 <h4 className="text-black text-xl md:text-2xl text-center font-bold my-3 font-sans">{countryName}</h4>
                 <div className="lg:flex justify-around">
                     <div className="mb-2 lg:mb-0">
-                        <button onClick={() => handleFavoriteCountry(country)} className="btn bg-[#12372A] text-white btn-xs md:btn-sm">Add to List</button>
+                        <button onClick={() => handleStatus(country)} className="btn bg-[#12372A] text-white btn-xs md:btn-sm">{status ? 'Remove from List' : 'Add to List'}</button>
                     </div>
                     <div>
                         <button

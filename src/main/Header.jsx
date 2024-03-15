@@ -1,5 +1,4 @@
 export default function Header({ handleSearch, favoriteCountry }) {
-    console.log(favoriteCountry);
 
     const handleSearchBtn = () => {
         const searchInput = document.getElementById('search-input');
@@ -30,7 +29,9 @@ export default function Header({ handleSearch, favoriteCountry }) {
                         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                             {
-                                favoriteCountry.map(country => <li><a href="">{country.name.common}</a></li>)
+                                favoriteCountry.map((country, idx) =>
+                                    <li key={idx} className="text-2xl text-black">{country.name.common}</li>
+                                )
                             }
                         </ul>
                     </div>
