@@ -1,4 +1,4 @@
-export default function Header({ handleSearch, favoriteCountry }) {
+export default function Header({ handleSearch, favoriteCountry, handleNotVisited, visited }) {
 
     const handleSearchBtn = () => {
         const searchInput = document.getElementById('search-input');
@@ -27,13 +27,52 @@ export default function Header({ handleSearch, favoriteCountry }) {
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                        <div className="overflow-x-auto menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                            {/* Favorite countries */}
+                            <h4 className="text-xl font-bold text-center">Favorite Countries : {favoriteCountry.length}</h4>
+                            <hr className="w-[75%] mx-auto mt-3" />
+                            <table className="table">
+                                <tbody>
+                                    {
+                                        favoriteCountry.map((country, idx) =>
+                                            <tr key={idx} className="hover">
+                                                <th>{idx + 1}</th>
+                                                <td className="text-md font-bold">{country.name.common}</td>
+                                                <td><button onClick={() => handleNotVisited(country)} className="btn btn-sm">Not visited</button></td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+
+                            {/* Visited countries */}
+
+                            <h4 className="text-xl font-bold text-center mt-5">Visited Countries : {visited.length}</h4>
+                            <hr className="w-[75%] mx-auto mt-3" />
+                            <table className="table">
+                                <tbody>
+                                    {
+                                        visited.map((visitedCountryList, idx) =>
+                                            <tr key={idx} className="hover">
+                                                <th>{idx + 1}</th>
+                                                <td className="text-md font-bold">{visitedCountryList.name.common}</td>
+                                                <td>Visited</td>
+                                            </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        {/* <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                             {
                                 favoriteCountry.map((country, idx) =>
-                                    <li key={idx} className="text-2xl text-black">{country.name.common}</li>
+                                    <div>
+                                        <li key={idx} className="text-2xl text-black">{country.name.common}</li>
+                                        <button>Not visited</button>
+                                    </div>
                                 )
                             }
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
             </div>
