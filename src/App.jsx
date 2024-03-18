@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <Header favoriteCountry={favoriteCountry} handleSearch={handleSearch}></Header>
-      <Countries handleFavoriteCountry={handleFavoriteCountry} searchCountry={searchCountry}></Countries>
+      <Countries favoriteCountry={favoriteCountry} handleFavoriteCountry={handleFavoriteCountry} searchCountry={searchCountry}></Countries>
     </>
   )
 }

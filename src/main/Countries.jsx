@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Country from "./Country";
 
-export default function Countries({ searchCountry, handleFavoriteCountry }) {
+export default function Countries({ searchCountry, handleFavoriteCountry, favoriteCountry }) {
     const [countries, setCountries] = useState([]);
     const [displayCountry, setDisplayCountry] = useState([]);
 
@@ -45,6 +45,7 @@ export default function Countries({ searchCountry, handleFavoriteCountry }) {
                                     handleFavoriteCountry={handleFavoriteCountry}
                                     handleDisplayCountry={handleDisplayCountry}
                                     displayCountry={displayCountry}
+                                    favoriteCountry={favoriteCountry}
                                 ></Country>)
                             }
                         </>

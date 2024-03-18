@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Country({ country, handleDisplayCountry, displayCountry, handleFavoriteCountry }) {
+function Country({ country, handleDisplayCountry, displayCountry, handleFavoriteCountry, favoriteCountry }) {
     const flag = country.flags.png;
     const countryName = country.name.common;
     const countryCca3 = country.cca3;
@@ -8,8 +8,17 @@ function Country({ country, handleDisplayCountry, displayCountry, handleFavorite
     const [status, setStatus] = useState(false);
 
     const handleStatus = (item) => {
-        handleFavoriteCountry(item); 
-        setStatus(true);
+        handleFavoriteCountry(item);
+        if(favoriteCountry.length === 0) {
+            setStatus(true);
+        }
+        favoriteCountry.map(favCnt => {
+            if (favCnt.cca3 !== item.cca3) {
+                setStatus(true);
+            } else {
+                setStatus(false);
+            }
+        });
     }
 
     return (
