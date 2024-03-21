@@ -35,6 +35,7 @@ export default function Countries({ searchCountry, handleFavoriteCountry, favori
                                     handleDisplayCountry={handleDisplayCountry}
                                     handleFavoriteCountry={handleFavoriteCountry}
                                     displayCountry={displayCountry}
+                                    favoriteCountry={favoriteCountry}
                                 ></Country>)
                             }
                         </> : <>

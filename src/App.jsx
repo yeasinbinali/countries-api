@@ -7,7 +7,6 @@ function App() {
   const [favoriteCountry, setFavoriteCountry] = useState([]);
   const [searchCountry, setSearchCountry] = useState([]);
   const [visited, setVisited] = useState([]);
-  const [status, setStatus] = useState(false);
 
   const handleSearch = (text) => {
     fetch(`https://restcountries.com/v3.1/name/${text}`)
@@ -35,7 +34,7 @@ function App() {
   return (
     <>
       <Header handleNotVisited={handleNotVisited} visited={visited} favoriteCountry={favoriteCountry} handleSearch={handleSearch}></Header>
-      <Countries favoriteCountry={favoriteCountry} handleFavoriteCountry={handleFavoriteCountry} searchCountry={searchCountry}></Countries>
+      <Countries favoriteCountry={favoriteCountry} handleFavoriteCountry={handleFavoriteCountry} searchCountry={searchCountry} visited={visited}></Countries>
     </>
   )
 }
